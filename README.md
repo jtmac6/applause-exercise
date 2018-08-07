@@ -10,13 +10,13 @@ A Tester matching exercise for Applause
     py -m pip install --user virtualenv               #Windows
     ```
     ```
-    macOS and Linux: python3 -m virtualenv venv
-    Windows: py -m virtualenv venv
+    python3 -m virtualenv venv                        #macOS and Linux
+    py -m virtualenv venv                             #Windows
     ```
 2. Activate your virtual environment
     ```
-    macOS and Linux: source venv/bin/activate
-    Windows: .\venv\Scripts\activate
+    source venv/bin/activate                          #macOS and Linux
+    .\venv\Scripts\activate                           #Windows
     ```
 3. Install csvs-to-sqlite.
 ```pip install csvs-to-sqlite```
