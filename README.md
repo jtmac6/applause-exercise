@@ -27,10 +27,9 @@ A Tester matching exercise for Applause
 # How to Run:
 
 1. Single argument value
-
 ```python tester_matcher.py --country "US" --device "iPhone 4"```
 
-2 All
+2. All
 
 ```python tester_matcher.py -c "all" -d "all"```
 
