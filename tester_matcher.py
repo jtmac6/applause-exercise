@@ -9,12 +9,11 @@ def main():
     :return: None
     """
 
-    parser = argparse.ArgumentParser(description='Query for testers')
+    parser = argparse.ArgumentParser(description='A program that matches testers to the given search criteria.')
     parser.add_argument("--country", "-c", action="append", required=False,
                         help="The country where a tester is located.")
     parser.add_argument("--device", "-d", action="append", required=False, help="The Device that the tester can test.")
 
-    # If the user doesn't supply any arguments, args.country and args.device will be None
     args = parser.parse_args()
 
     print("Criteria: {0} {1}".format(
@@ -23,8 +22,12 @@ def main():
     print("Results:")
 
     matches = match_testers(args.country, args.device)
-    for match in matches:
-        print("Id: {0:<3} Name: {1:22} Country: {2:5} Experience: {3}".format(match[0], match[1] + " " + match[2],
+
+    if len(matches)<1:
+        print("There were no testers that matched the search criteria.")
+    else:
+        for match in matches:
+            print("Id: {0:<3} Name: {1:22} Country: {2:5} Experience: {3}".format(match[0], match[1] + " " + match[2],
                                                                               match[3], match[4]))
 
 
@@ -56,10 +59,19 @@ def match_testers(country, device):
     if country:
         if "all" not in country:
             country_clause = "testers.country in ({0})".format(','.join('?' * len(country))) if len(country) > 0 else ""
+
+        else:
+            country = []
+    else:
+        country = []
+
     if device:
         if "all" not in device:
             device_clause = "devices.description in ({0})".format(','.join('?' * len(device))) if len(
-                country) > 0 else ""
+                device) > 0 else ""
+        else:
+            device = []
+    else: device = []
 
     # Put the parts together
     if country_clause != "" or device_clause != "":
