@@ -62,7 +62,6 @@ Note: The tests in test_test_matcher.py assume expected values from the original
 
 2. Query using the full list of devices and/or countries with "all": ```tester_matcher.py -c "all" -d "all"```
 ```
-    tester_matcher.py -c all -d all
     Criteria: Country="all" Device="all"
     Results:
     Id: 4   Name: Taybin Rutkin          Country: US    Experience: 125
