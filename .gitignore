@@ -1,8 +1,12 @@
-# virtualenv
+# Virtual Environment
 venv/
 
-#Jetbrains
+# Jetbrains
 .idea/
 
-#Database
+# Database
 tester.db
+
+# Pytest
+.pytest_cache/
+__pycache__/

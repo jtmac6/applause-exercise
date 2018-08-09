@@ -17,8 +17,8 @@ def main():
     args = parser.parse_args()
 
     print("Criteria: {0} {1}".format(
-        "".join(["Country=\"" + x + "\"" for x in args.country]) if args.country else "Country=\"all\"",
-        "".join(["Device=\"" + x + "\"" for x in args.device]) if args.device else "Device=\"all\""))
+        "".join(["Country=\"" + x + "\" " for x in args.country]) if args.country else "Country=\"all\"",
+        "".join(["Device=\"" + x + "\" " for x in args.device]) if args.device else "Device=\"all\""))
     print("Results:")
 
     matches = match_testers(args.country, args.device)
